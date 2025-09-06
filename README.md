@@ -14,6 +14,7 @@ It supports the following output formats:
 This backend is currently maintained by:
 
 * [Pepe Llopis](https://github.com/cyberg-academy)
+  * Explained in detail in Cyberg Academy's [Threat Hunting Course](https://cyberg-academy.io/#cursos)
 
 ## Usage
 
