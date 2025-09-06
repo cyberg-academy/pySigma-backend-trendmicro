@@ -1,6 +1,5 @@
 # pySigma-backend-trendmicro
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/cyberg-academy/pySigma-backend-trendmicro-coverage/raw/coverage.json)
-![Status](https://img.shields.io/badge/Status-development-orange)
+![Status](https://img.shields.io/badge/Status-alpha-yellow)
 
 # pySigma TrendMicro Backend
 
@@ -19,7 +18,7 @@ This backend is currently maintained by:
 
 ### pySigma
 ```python
-from sigma.backends.trendmicro import TrendMicroBackend
+from sigma.backends.trendmicro import TrendmicroVisionOneBackend
 from sigma.rule import SigmaRule
 
 rule = SigmaRule.from_yaml("""
@@ -34,7 +33,7 @@ detection:
     condition: sel""")
 
 
-backend = TrendMicroBackend()
+backend = TrendmicroVisionOneBackend()
 print(backend.convert_rule(rule)[0])
 ```
 
