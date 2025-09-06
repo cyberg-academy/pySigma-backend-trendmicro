@@ -3,8 +3,9 @@
 
 # pySigma TrendMicro Backend
 
-This is the TrendMicro backend for pySigma. It provides the package `sigma.backends.trendmicro` with the `TrendMicroBackend` class.
-Further, it contains the processing pipelines in `sigma.pipelines.trendmicro` for field renames and error handling. This pipeline is automatically applied to `SigmaRule` and `SigmaCollection` objects passed to the `TrendMicroBackend` class.
+This is the TrendMicro backend for pySigma. It provides the package `sigma.backends.trendmicro` with the `TrendmicroVisionOneBackend` class.
+
+Further, it contains the processing pipelines in `sigma.pipelines.trendmicro` for field renames and error handling. This pipeline is automatically applied to `SigmaRule` and `SigmaCollection` objects passed to the `TrendmicroVisionOneBackend` class.
 
 It supports the following output formats:
 
@@ -48,7 +49,6 @@ print(backend.convert_rule(rule)[0])
   - `file_rename`
   - `file_delete`
   - `image_load`
-  - `pipe_creation`
   - `registry_add`
   - `registry_delete`
   - `registry_event`
@@ -56,5 +56,4 @@ print(backend.convert_rule(rule)[0])
   - `dns_query`
   - `dns`
   - `network_connection`
-  - `firewall`
 - Any unsupported fields or categories will throw errors
