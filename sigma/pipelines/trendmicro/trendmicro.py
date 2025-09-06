@@ -43,8 +43,7 @@ def trendmicro_pipeline() -> ProcessingPipeline:
     The pipeline is focused on table: endpointActivities
         - endpointActivities fields: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-endpoint-activity-data
 
-    All tables available:
-        - endpointActivities
+    But there are other tables available:
         - cloudActivities
         - emailActivities
         - networkActivities

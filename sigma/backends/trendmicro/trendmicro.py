@@ -19,14 +19,15 @@ from sigma.pipelines.trendmicro import trendmicro_pipeline
 
 
 class TrendmicroVisionOneBackend(TextQueryBackend):
-    """Trendmicro Vision One backend.
-    - Syntax doc ref: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-search-syntax
+    """
+    Trendmicro Vision One backend.
+        - Syntax doc ref: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-search-syntax
     """
 
     backend_processing_pipeline: ClassVar[ProcessingPipeline] = trendmicro_pipeline()
 
     name: ClassVar[str] = "Trendmicro Vision One backend"
-    formats: Dict[str, str] = {"default": "Plaintext", "json": "JSON format"}
+    formats: Dict[str, str] = {"default": "Plaintext"}
 
     requires_pipeline: bool = False
 
@@ -122,7 +123,7 @@ class TrendmicroVisionOneBackend(TextQueryBackend):
 
     def finalize_query_default(self, rule: SigmaRule, query: str, index: int, state: ConversionState) -> str:
         # Starts/Endswith ñapa
-        # As cortex does not have endswith/startswith operators, we need to replace them with regex
+        # As Trendmicro does not have endswith/startswith operators, we need to replace them with regex
         def transform_query(query: str) -> str:
             """
             Rewrite occurrences of:
@@ -151,13 +152,3 @@ class TrendmicroVisionOneBackend(TextQueryBackend):
     def finalize_output_default(self, queries: List[str]) -> str:
         return queries
 
-    def finalize_query_json(self, rule: SigmaRule, query: str, index: int, state: ConversionState) -> dict:
-        return {
-            "query": query,
-            "title": rule.title,
-            "id": rule.id,
-            "description": rule.description,
-        }
-
-    def finalize_output_json(self, queries: List[str]) -> dict:
-        return {"queries": queries}
